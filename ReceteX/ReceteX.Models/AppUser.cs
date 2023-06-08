@@ -8,6 +8,15 @@ namespace ReceteX.Models
 {
     public class AppUser : BaseModel
     {
+
+        //app user müşteriye bağlı olacak
+
+        public Guid CustomerId { get; set; }
+
+        public virtual Customer? Customer { get; set; }
+
+        //doktor adı base modelden geliyor surname'i burada alalım.
+        public string? Surname { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
         public string? Gsm { get; set; }
