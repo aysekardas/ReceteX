@@ -17,6 +17,25 @@ namespace ReceteX.Data
         
         }
 
-        public virtual DbSet<AppUser>
+        public virtual DbSet<AppUser> Users { get; set; }
+
+        public virtual DbSet<Customer> Customers { get; set; }
+
+        public virtual DbSet<Description> Descriptions { get; set; }
+
+        public virtual DbSet<DescriptionType> DescriptionTypes { get; set; }
+
+        public virtual DbSet<Diagnosis> Diagnoses { get; set; }
+
+        public virtual DbSet<Medicine> Medicines { get; set; }
+
+        public virtual DbSet<MedicineUsagePeriod> MedicineUsagePeriods { get; set; }
+
+        public virtual DbSet<Prescription> Prescriptions { get; set; }
+
+        public virtual DbSet<PrescriptionMedicine> PrescriptionMedicines { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
+
+
     }
 }
