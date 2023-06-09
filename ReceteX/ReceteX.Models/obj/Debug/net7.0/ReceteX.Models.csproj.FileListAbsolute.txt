@@ -1,0 +1,12 @@
+D:\ReceteX\ReceteX\ReceteX.Models\bin\Debug\net7.0\ReceteX.Models.deps.json
+D:\ReceteX\ReceteX\ReceteX.Models\bin\Debug\net7.0\ReceteX.Models.dll
+D:\ReceteX\ReceteX\ReceteX.Models\bin\Debug\net7.0\ReceteX.Models.pdb
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.csproj.AssemblyReference.cache
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.AssemblyInfoInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.AssemblyInfo.cs
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.csproj.CoreCompileInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.dll
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\refint\ReceteX.Models.dll
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ReceteX.Models.pdb
+D:\ReceteX\ReceteX\ReceteX.Models\obj\Debug\net7.0\ref\ReceteX.Models.dll

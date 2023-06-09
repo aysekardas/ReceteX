@@ -1,0 +1,8 @@
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.csproj.AssemblyReference.cache
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.AssemblyInfoInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.AssemblyInfo.cs
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.csproj.CoreCompileInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.RazorAssemblyInfo.cache
+D:\ReceteX\ReceteX\ReceteX.Web\obj\Debug\net7.0\ReceteX.Web.RazorAssemblyInfo.cs

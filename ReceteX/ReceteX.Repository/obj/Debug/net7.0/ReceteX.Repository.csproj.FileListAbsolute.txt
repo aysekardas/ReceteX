@@ -1,0 +1,12 @@
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Repository.deps.json
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Repository.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Repository.pdb
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.csproj.AssemblyReference.cache
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.AssemblyInfoInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.AssemblyInfo.cs
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.csproj.CoreCompileInputs.cache
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\refint\ReceteX.Repository.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.pdb
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ref\ReceteX.Repository.dll
