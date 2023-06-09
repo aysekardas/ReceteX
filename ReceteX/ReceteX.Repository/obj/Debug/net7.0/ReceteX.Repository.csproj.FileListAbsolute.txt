@@ -10,3 +10,8 @@ D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.dll
 D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\refint\ReceteX.Repository.dll
 D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.pdb
 D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ref\ReceteX.Repository.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Data.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Models.dll
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Data.pdb
+D:\ReceteX\ReceteX\ReceteX.Repository\bin\Debug\net7.0\ReceteX.Models.pdb
+D:\ReceteX\ReceteX\ReceteX.Repository\obj\Debug\net7.0\ReceteX.Repository.csproj.CopyComplete

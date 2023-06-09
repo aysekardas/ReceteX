@@ -27,5 +27,11 @@ namespace ReceteX.Models
         public int? CityCode { get; set;}
         //numbers and letters mixed
         public string? MedulaPassword { get; set; }
+
+
+        public bool isAdmin { get; set; } = false;
+
+        public bool isActive { get; set; } = true;
+
     }
 }

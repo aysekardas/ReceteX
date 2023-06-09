@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using ReceteX.Data;
+using ReceteX.Repository.Shared.Abstract;
+using ReceteX.Repository.Shared.Concrete;
 
 namespace ReceteX.Web
 {
@@ -10,9 +13,19 @@ namespace ReceteX.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings")));
+            //builder.Services.AddControllersWithViews();
 
+            
+            builder.Services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings")));
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/User/Login";
+                options.AccessDeniedPath = "/User/AccessDenied";
+
+            });
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,7 +40,7 @@ namespace ReceteX.Web
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
