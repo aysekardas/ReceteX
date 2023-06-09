@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReceteX.Models;
 using ReceteX.Repository.Shared.Abstract;
@@ -16,9 +17,54 @@ namespace ReceteX.Web.Controllers
             this.unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+
+
+
+        //Admin olarak girildiğinde tüm user'ları listeleyebileceğimiz action.
+
+        [Authorize(Roles ="Admin")]
+
+        public IActionResult GetAll()
         {
-            return View();
+            return Json(new { data = unitOfWork.Users.GetAll() });
+
+            //DataTables oluşabilmek için verilerin hepsinin DATA isimli bir obje içinde gelme kuralı koyuyor. O yuzden aşağıdaki gibi yeni bir anonim nesne oluşturup içerisine data diye bir field açıyoruz ve bütün datayı onun içine koyuyoruz. Bunu sırf DataTables için yapıyoruz.
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+
+        public IActionResult GetById(Guid guid)
+        {
+            AppUser usr = unitOfWork.Users.GetFirstOrDefault(u=>u.Id == guid);
+            return Json(usr);
+
+        }
+
+        [Authorize(Roles ="Admin")]
+        [HttpPost]
+        public IActionResult Create(AppUser appUser)
+        {
+            unitOfWork.Users.Add(appUser);  
+            unitOfWork.Save();
+            return Ok();
+        }
+
+        [Authorize(Roles ="Admin")]
+        [HttpPost]
+
+        public IActionResult Update(AppUser appUser)
+        {
+            unitOfWork.Users.Update(appUser);
+            unitOfWork.Save();
+            return Ok();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "User");
         }
 
         public IActionResult Login()
@@ -35,7 +81,7 @@ namespace ReceteX.Web.Controllers
             //user null değilse çalışsın
             if (user == null)
             {//IUnitOfWork ekledik
-                AppUser usr = unitOfWork.Users.GetFirstOrDefault(u=>u.Email==user.Email&&u.Password==user.Password && u.isActive);
+                AppUser usr = unitOfWork.Users.GetFirstOrDefault(u=>u.Email==user.Email&&u.Password==user.Password && u.isActive && !u.isDeleted);
                 
                 if (usr != null) 
                 {
@@ -64,7 +110,11 @@ namespace ReceteX.Web.Controllers
                 }
             
             }
-            return View();
+            else
+
+            {
+                return View();
+            }
         }
     }
 }
