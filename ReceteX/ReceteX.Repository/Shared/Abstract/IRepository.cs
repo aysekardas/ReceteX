@@ -25,7 +25,9 @@ namespace ReceteX.Repository.Shared.Abstract
         void Add(T entity);
 
         void Update(T entity);
-        void Remove(T entity);
+
+		//programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
+		void Remove(Guid id);
 
         void RemoveRange(IEnumerable<T> entities);
         void UpdateRange(IEnumerable<T> entities);

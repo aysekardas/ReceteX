@@ -51,11 +51,11 @@
                                 <p class="text-muted">Sign in to continue to Minible.</p>
                             </div>
                             <div class="p-2 mt-4">
-                                <form action="index.html">
+                                <form method="post">
 
                                     <div class="mb-3">
                                         <label class="form-label" for="email">Email</label>
-                                        <input type="text" class="form-control" id="email" placeholder="E-mail adresiniz..">
+                                        <input asp-for="Email" class="form-control" id="email" placeholder="E-mail adresiniz..">
                                     </div>
 
                                     <div class="mb-3">
@@ -63,7 +63,7 @@
                                             <a href="auth-recoverpw.html" class="text-muted">Forgot password?</a>
                                         </div>
                                         <label class="form-label" for="userpassword">Şifre</label>
-                                        <input type="password" class="form-control" id="userpassword" placeholder="Şifre..">
+                                        <input asp-for="Password" class="form-control" type="password" id="password" placeholder="Şifre..">
                                     </div>
 
                                     <div class="form-check">
@@ -82,7 +82,7 @@
                                             <h5 class="font-size-14 mb-3 title">Sign in with</h5>
                                         </div>
 
-
+@*
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <a href="javascript:void()" class="social-list-item bg-primary text-white border-primary">
@@ -99,8 +99,15 @@
                                                     <i class="mdi mdi-google"></i>
                                                 </a>
                                             </li>
-                                        </ul>
+                                        </ul>*@
                                     </div>
+
+                                   @*
+                                   TAMAMLA    
+                                   <div class="form-check">
+                                        <input asp-for ="isRememberMe" class="form-check-input" "
+                                        </div>
+*@
 
                                     <div class="mt-4 text-center">
                                         <p class="mb-0">Don't have an account ? <a href="auth-register.html" class="fw-medium text-primary"> Signup now </a> </p>

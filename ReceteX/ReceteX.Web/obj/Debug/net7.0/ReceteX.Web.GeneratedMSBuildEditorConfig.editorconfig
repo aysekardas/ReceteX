@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\ReceteX\ReceteX\ReceteX.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/ReceteX/ReceteX/ReceteX.Web/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ReceteX/ReceteX/ReceteX.Web/Views/Diagnosis/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc2lzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

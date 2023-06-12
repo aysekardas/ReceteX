@@ -55,17 +55,26 @@ namespace ReceteX.Repository.Shared.Concrete
             //aslında bu da filtre uyguluyor ama bir tane nesne gönderiyor bize
             return GetAll().FirstOrDefault(filter);
 
-        }
+		}
 
-        public void Remove(T entity)
+        //public void Remove(T entity)
+        //{
+        //    entity.isDeleted = true;
+        //    //entity.isActive = false;
+        //    //entity.DateModified = DateTime.Now;
+        //    dbSet.Update(entity);
+        //}
+         
+        public void Remove(Guid id)
+        
         {
+			//programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
+			T entity = GetFirstOrDefault(t=>t.Id== id);
             entity.isDeleted = true;
-            //entity.isActive = false;
-            //entity.DateModified = DateTime.Now;
             dbSet.Update(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entities)
+	public void RemoveRange(IEnumerable<T> entities)
         {
             foreach (T item in entities)
             {

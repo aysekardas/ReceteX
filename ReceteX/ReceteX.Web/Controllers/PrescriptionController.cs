@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using ReceteX.Models;
+using ReceteX.Repository.Shared.Abstract;
 using ReceteX.Repository.Shared.Concrete;
 
 namespace ReceteX.Web.Controllers
 {
     public class PrescriptionController : Controller
+
+        
     {
-       private readonly UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public PrescriptionController(UnitOfWork unitOfWork)
-        {
-            this.unitOfWork = unitOfWork;
-        }
+        public PrescriptionController(IUnitOfWork unitOfWork)
+    {
+        this.unitOfWork = unitOfWork;
+    }
 
-        [HttpGet]
+    [HttpGet]
         [Route("ReceteYaz/{id?}")]
 
         public IActionResult Write(string id)

@@ -81,24 +81,33 @@ namespace ReceteX.Web.Controllers
             //user null değilse çalışsın
             if (user == null)
             {//IUnitOfWork ekledik
-                AppUser usr = unitOfWork.Users.GetFirstOrDefault(u=>u.Email==user.Email&&u.Password==user.Password && u.isActive && !u.isDeleted);
+               
                 
-                if (usr != null) 
+                if (user != null) 
                 {
+                    AppUser usr = unitOfWork.Users.GetFirstOrDefault(u => u.Email == user.Email && u.Password == user.Password && u.isActive && !u.isDeleted);
 
                     List<Claim> claims = new List<Claim>();
-                    claims.Add(new Claim(ClaimTypes.Name, usr.Name));
+                    claims.Add(new Claim(ClaimTypes.Name, usr.Name + "" + usr.Surname));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, usr.Id.ToString()));
                     if (usr.isAdmin)
                         claims.Add(new Claim(ClaimTypes.Role, "Admin"));
                     else
                         claims.Add(new Claim(ClaimTypes.Role, "User"));
+
+                   
                     var claimsIdentiy = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                     await HttpContext.SignOutAsync
                         (CookieAuthenticationDefaults.AuthenticationScheme);
                     await HttpContext.SignInAsync
                         (CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentiy));
+                    
+
+                    //Kullanıcı tekrar tekrar girmekle uğraşmasın sign out yapasıya kadar çalışsın.
+                        await HttpContext.SignInAsync
+                           (CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal
+                           (claimsIdentiy), new AuthenticationProperties { IsPersistent = usr.isRememberMe });
 
                     return RedirectToAction("Index", "Home");   
                 }

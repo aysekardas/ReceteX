@@ -33,5 +33,7 @@ namespace ReceteX.Models
 
         public bool isActive { get; set; } = true;
 
+        public bool isRememberMe { get; set; }  =false;
+
     }
 }

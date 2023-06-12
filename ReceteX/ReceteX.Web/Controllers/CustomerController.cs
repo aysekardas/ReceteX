@@ -1,0 +1,46 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using ReceteX.Models;
+using ReceteX.Repository.Shared.Abstract;
+
+namespace ReceteX.Web.Controllers
+{
+    public class CustomerController : Controller
+    {
+        private readonly IUnitOfWork unitOfWork;
+
+		public CustomerController(IUnitOfWork unitOfWork)
+		{
+			this.unitOfWork = unitOfWork;
+		}
+
+		public IActionResult Index()
+        {
+            return View();
+        }
+
+
+        public IActionResult GetAll() 
+        {
+            return Json(new { data = unitOfWork.Customers.GetAll() });
+        
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Guid id)
+        {
+            //programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
+            unitOfWork.Customers.Remove(id);
+            unitOfWork.Save();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Customer customer)
+        
+        {
+            unitOfWork.Customers.Add(customer);
+            unitOfWork.Save();
+            return Ok();
+        }
+    }
+}
