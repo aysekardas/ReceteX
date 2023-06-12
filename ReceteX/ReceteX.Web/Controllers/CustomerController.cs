@@ -42,5 +42,25 @@ namespace ReceteX.Web.Controllers
             unitOfWork.Save();
             return Ok();
         }
+
+        [HttpPost]
+        public IActionResult Update(Customer customer) 
+        {
+            Customer asil = unitOfWork.Customers.GetFirstOrDefault(c=>c.Id == customer.Id);
+            asil.Name = customer.Name;
+            unitOfWork.Customers.Update(customer);  
+
+            unitOfWork.Save();
+            return Ok();
+            
+        }
+
+        [HttpPost]
+
+        public IActionResult GetById(Guid id)
+
+        {
+            return Json(unitOfWork.Customers.GetById(id));
+        }
     }
 }

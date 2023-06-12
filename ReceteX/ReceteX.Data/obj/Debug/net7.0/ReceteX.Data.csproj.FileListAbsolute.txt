@@ -13,3 +13,5 @@ D:\ReceteX\ReceteX\ReceteX.Data\obj\Debug\net7.0\ReceteX.Data.dll
 D:\ReceteX\ReceteX\ReceteX.Data\obj\Debug\net7.0\refint\ReceteX.Data.dll
 D:\ReceteX\ReceteX\ReceteX.Data\obj\Debug\net7.0\ReceteX.Data.pdb
 D:\ReceteX\ReceteX\ReceteX.Data\obj\Debug\net7.0\ref\ReceteX.Data.dll
+D:\ReceteX\ReceteX\ReceteX.Data\bin\Debug\net7.0\ReceteX.Data.runtimeconfig.json
+D:\ReceteX\ReceteX\ReceteX.Data\obj\Debug\net7.0\ReceteX.Data.genruntimeconfig.cache

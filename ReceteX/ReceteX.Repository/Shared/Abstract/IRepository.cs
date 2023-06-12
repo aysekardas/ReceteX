@@ -21,6 +21,14 @@ namespace ReceteX.Repository.Shared.Abstract
 
         //Geri dönüş değeri T
         T GetFirstOrDefault(Expression<Func<T, bool>> expression);
+
+
+        T GetById(Guid id);
+
+
+
+
+
         //Dışarıdan bir adet nesne alacak geriye değer döndürmeyecek
         void Add(T entity);
 

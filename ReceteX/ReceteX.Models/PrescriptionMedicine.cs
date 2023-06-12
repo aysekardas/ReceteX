@@ -12,9 +12,9 @@ namespace ReceteX.Models
         //bu model bir reçetenin içindeki bir ilacı temsil eden bir model
         public Guid PrescriptionId { get; set; }
 
-        public virtual Prescription? Prescription { get; set; }
+        public virtual Prescription Prescription { get; set; }
         public Guid MedicineId { get; set; }
-        public virtual Medicine? Medicine { get; set; }
+        public virtual Medicine Medicine { get; set; }
 
         public int Quantity { get; set; }
 
@@ -27,11 +27,11 @@ namespace ReceteX.Models
         public int Period { get; set; }
 
         //günde, haftada, ayda, yılda ne kadar aralıklarla kullanılacağı
-        public int MedicineUsagePeriodId { get; set; }
+       public Guid MedicineUsagePeriodId { get; set; }
         public virtual MedicineUsagePeriod? MedicineUsagePeriod { get; set; }
 
         //ağız, kol vs..
-        public int MedicineUsageTypeId {get; set;} 
+        public Guid MedicineUsageTypeId {get; set;} 
 
         public virtual MedicineUsageType? MedicineUsageType { get; set; }
 

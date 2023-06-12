@@ -50,7 +50,13 @@ namespace ReceteX.Repository.Shared.Concrete
             return GetAll().Where(filter);
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
+		public T GetById(Guid id)
+		{
+            return (T)dbSet.Find(id);
+
+		}
+
+		public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
         {
             //aslında bu da filtre uyguluyor ama bir tane nesne gönderiyor bize
             return GetAll().FirstOrDefault(filter);
