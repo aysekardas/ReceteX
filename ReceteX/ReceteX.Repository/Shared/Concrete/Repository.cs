@@ -74,8 +74,9 @@ namespace ReceteX.Repository.Shared.Concrete
         public void Remove(Guid id)
         
         {
-			//programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
-			T entity = GetFirstOrDefault(t=>t.Id== id);
+            //programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
+            //lT entity = GetFirstOrDefault(t=>t.Id== id);
+            T entity = dbSet.Find(id);
             entity.isDeleted = true;
             dbSet.Update(entity);
         }

@@ -17,19 +17,33 @@ namespace ReceteX.Web.Controllers
             this.unitOfWork = unitOfWork;
         }
 
-
+        public IActionResult Index()
+        {
+            return View();
+        }
 
 
         //Admin olarak girildiğinde tüm user'ları listeleyebileceğimiz action.
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
+        [Route("{customerId}?")]
 
-        public IActionResult GetAll()
+        //query stringden gönderdiğimiz datayı controllerda nasıl yakalarız
+
+        public IActionResult GetAll(Guid? customerId)
         {
+
+            if(customerId==null)
+
+
             return Json(new { data = unitOfWork.Users.GetAll() });
 
-            //DataTables oluşabilmek için verilerin hepsinin DATA isimli bir obje içinde gelme kuralı koyuyor. O yuzden aşağıdaki gibi yeni bir anonim nesne oluşturup içerisine data diye bir field açıyoruz ve bütün datayı onun içine koyuyoruz. Bunu sırf DataTables için yapıyoruz.
-        }
+			else
+				return Json(new { data = unitOfWork.Users.GetAll(u=>u.CustomerId==customerId) });
+
+			//DataTables oluşabilmek için verilerin hepsinin DATA isimli bir obje içinde gelme kuralı koyuyor. O yuzden aşağıdaki gibi yeni bir anonim nesne oluşturup içerisine data diye bir field açıyoruz ve bütün datayı onun içine koyuyoruz. Bunu sırf DataTables için yapıyoruz.
+
+		}
 
 
         [Authorize(Roles = "Admin")]
@@ -72,14 +86,15 @@ namespace ReceteX.Web.Controllers
             return View();
         }
 
-        [HttpPost]
+
 
         //login'i ajax ile yapmayacağız
+        [HttpPost]
         public async Task<IActionResult> Login(AppUser user)
         {
 
             //user null değilse çalışsın
-            if (user == null)
+            if (user != null)
             {//IUnitOfWork ekledik
                
                 

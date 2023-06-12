@@ -21,7 +21,7 @@ namespace ReceteX.Web.Controllers
 
         public IActionResult GetAll() 
         {
-            return Json(new { data = unitOfWork.Customers.GetAll() });
+            return Json(new { data = unitOfWork.Customers.GetAllWithUserCount()});
         
         }
 
@@ -31,7 +31,7 @@ namespace ReceteX.Web.Controllers
             //programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
             unitOfWork.Customers.Remove(id);
             unitOfWork.Save();
-            return View();
+            return Ok();
         }
 
         [HttpPost]
@@ -42,6 +42,7 @@ namespace ReceteX.Web.Controllers
             unitOfWork.Save();
             return Ok();
         }
+      
 
         [HttpPost]
         public IActionResult Update(Customer customer) 
