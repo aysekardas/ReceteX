@@ -96,7 +96,9 @@
 
 			//DataTable GetAll Bölümü
 			DataTable = $('#tblUsers').DataTable({
-				ajax: '/User/GetAll',
+
+				/* ajax: '/User/GetAll?customerId=@Context.Request.Query["customerId"]'"",*/
+				ajax : '/User/GetAll?customerId=@Context.Request.Query["customerId"]',
 				columns: [
 					{ data: 'id', title: "Id" },
 					{ data: 'customerId', title: "CustomerId" },

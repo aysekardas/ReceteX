@@ -75,7 +75,7 @@ namespace ReceteX.Repository.Shared.Concrete
         
         {
             //programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
-            //lT entity = GetFirstOrDefault(t=>t.Id== id);
+            //T entity = GetFirstOrDefault(t=>t.Id== id);
             T entity = dbSet.Find(id);
             entity.isDeleted = true;
             dbSet.Update(entity);

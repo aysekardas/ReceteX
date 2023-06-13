@@ -17,20 +17,28 @@ namespace ReceteX.Web.Controllers
             this.unitOfWork = unitOfWork;
         }
 
+        //query stringden gönderdiğimiz datayı controllerda nasıl yakalarız
+        //route belirlememiz gerek
+
+        //[HttpGet]
+        //      [Route("User/{customerId?}")]
+        //      public IActionResult Index(Guid customerId)
+        //      {
+        //          Guid deneme = customerId;
+        //          return View();
+        //      }
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+		//Admin olarak girildiğinde tüm user'ları listeleyebileceğimiz action.
 
-        //Admin olarak girildiğinde tüm user'ları listeleyebileceğimiz action.
-
-        [Authorize(Roles = "Admin")]
-        [Route("{customerId}?")]
-
-        //query stringden gönderdiğimiz datayı controllerda nasıl yakalarız
-
-        public IActionResult GetAll(Guid? customerId)
+		[Authorize(Roles = "Admin")]
+		[HttpGet]
+		public IActionResult GetAll([FromQuery(Name ="customerId")]string? customerId)
         {
 
             if(customerId==null)
@@ -38,12 +46,12 @@ namespace ReceteX.Web.Controllers
 
             return Json(new { data = unitOfWork.Users.GetAll() });
 
-			else
-				return Json(new { data = unitOfWork.Users.GetAll(u=>u.CustomerId==customerId) });
+            else
+                return Json(new { data = unitOfWork.Users.GetAll(u => u.CustomerId == Guid.Parse(customerId)) });
 
-			//DataTables oluşabilmek için verilerin hepsinin DATA isimli bir obje içinde gelme kuralı koyuyor. O yuzden aşağıdaki gibi yeni bir anonim nesne oluşturup içerisine data diye bir field açıyoruz ve bütün datayı onun içine koyuyoruz. Bunu sırf DataTables için yapıyoruz.
+            //DataTables oluşabilmek için verilerin hepsinin DATA isimli bir obje içinde gelme kuralı koyuyor. O yuzden aşağıdaki gibi yeni bir anonim nesne oluşturup içerisine data diye bir field açıyoruz ve bütün datayı onun içine koyuyoruz. Bunu sırf DataTables için yapıyoruz.
 
-		}
+        }
 
 
         [Authorize(Roles = "Admin")]
