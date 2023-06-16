@@ -1247,6 +1247,16 @@
         "runtime": {
           "bin/placeholder/ReceteX.Repository.dll": {}
         }
+      },
+      "ReceteX.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ReceteX.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReceteX.Utility.dll": {}
+        }
       }
     }
   },
@@ -3700,6 +3710,11 @@
       "type": "project",
       "path": "../ReceteX.Repository/ReceteX.Repository.csproj",
       "msbuildProject": "../ReceteX.Repository/ReceteX.Repository.csproj"
+    },
+    "ReceteX.Utility/1.0.0": {
+      "type": "project",
+      "path": "../ReceteX.Utility/ReceteX.Utility.csproj",
+      "msbuildProject": "../ReceteX.Utility/ReceteX.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3709,6 +3724,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "ReceteX.Data >= 1.0.0",
       "ReceteX.Repository >= 1.0.0",
+      "ReceteX.Utility >= 1.0.0",
       "toastr >= 2.1.1"
     ]
   },
@@ -3750,6 +3766,9 @@
             },
             "D:\\ReceteX\\ReceteX\\ReceteX.Repository\\ReceteX.Repository.csproj": {
               "projectPath": "D:\\ReceteX\\ReceteX\\ReceteX.Repository\\ReceteX.Repository.csproj"
+            },
+            "D:\\ReceteX\\ReceteX\\ReceteX.Utility\\ReceteX.Utility.csproj": {
+              "projectPath": "D:\\ReceteX\\ReceteX\\ReceteX.Utility\\ReceteX.Utility.csproj"
             }
           }
         }

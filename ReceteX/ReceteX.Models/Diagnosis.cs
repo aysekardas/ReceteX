@@ -12,6 +12,8 @@ namespace ReceteX.Models
         //Diagnosis Code
         public string? Code { get; set; } 
 
+        public ICollection<Prescription> Prescription { get; set; }
+
 
     }
 }

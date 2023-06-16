@@ -22,6 +22,21 @@ namespace ReceteX.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DiagnosisPrescription", b =>
+                {
+                    b.Property<Guid>("DiagnosesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PrescriptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DiagnosesId", "PrescriptionId");
+
+                    b.HasIndex("PrescriptionId");
+
+                    b.ToTable("DiagnosisPrescription");
+                });
+
             modelBuilder.Entity("ReceteX.Models.AppUser", b =>
                 {
                     b.Property<Guid>("Id")
@@ -171,15 +186,10 @@ namespace ReceteX.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("PrescriptionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PrescriptionId");
 
                     b.ToTable("Diagnoses");
                 });
@@ -376,6 +386,21 @@ namespace ReceteX.Data.Migrations
                     b.ToTable("Statuses");
                 });
 
+            modelBuilder.Entity("DiagnosisPrescription", b =>
+                {
+                    b.HasOne("ReceteX.Models.Diagnosis", null)
+                        .WithMany()
+                        .HasForeignKey("DiagnosesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReceteX.Models.Prescription", null)
+                        .WithMany()
+                        .HasForeignKey("PrescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ReceteX.Models.AppUser", b =>
                 {
                     b.HasOne("ReceteX.Models.Customer", "Customer")
@@ -400,13 +425,6 @@ namespace ReceteX.Data.Migrations
                         .HasForeignKey("PrescriptionId");
 
                     b.Navigation("DescriptionType");
-                });
-
-            modelBuilder.Entity("ReceteX.Models.Diagnosis", b =>
-                {
-                    b.HasOne("ReceteX.Models.Prescription", null)
-                        .WithMany("Diagnoses")
-                        .HasForeignKey("PrescriptionId");
                 });
 
             modelBuilder.Entity("ReceteX.Models.Prescription", b =>
@@ -471,8 +489,6 @@ namespace ReceteX.Data.Migrations
             modelBuilder.Entity("ReceteX.Models.Prescription", b =>
                 {
                     b.Navigation("Descriptions");
-
-                    b.Navigation("Diagnoses");
 
                     b.Navigation("PrescriptionMedicines");
                 });

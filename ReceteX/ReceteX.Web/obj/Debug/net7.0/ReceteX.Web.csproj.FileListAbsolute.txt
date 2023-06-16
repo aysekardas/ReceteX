@@ -83,3 +83,5 @@ D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.d
 D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\ReceteX.Utility.dll
+D:\ReceteX\ReceteX\ReceteX.Web\bin\Debug\net7.0\ReceteX.Utility.pdb

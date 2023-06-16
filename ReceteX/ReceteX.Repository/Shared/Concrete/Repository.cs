@@ -50,16 +50,33 @@ namespace ReceteX.Repository.Shared.Concrete
             return GetAll().Where(filter);
         }
 
-		public T GetById(Guid id)
+        //silinmişler içerisinde barkodu şu olanı getir diyebilirim
+        public IQueryable<T> GetAllDeleted(Expression<Func<T, bool>> filter)
+        {
+            //önce isdeleted true olanları getir sonra sorgu gönderdiysem onları getir
+            return dbSet.Where(t=>t.isDeleted==true).Where(filter);
+        }
+
+
+        //içine herhangi bir linq sorgu cümlesi almayan
+
+
+        public IQueryable<T> GetAllDeleted()
+        {
+            return dbSet.Where(x => x.isDeleted == true);
+        }
+
+
+        public T GetById(Guid id)
 		{
-            return (T)dbSet.Find(id);
+            return dbSet.Find(id);
 
 		}
 
 		public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
         {
             //aslında bu da filtre uyguluyor ama bir tane nesne gönderiyor bize
-            return GetAll().FirstOrDefault(filter);
+            return dbSet.Where(t=>t.isDeleted==false).AsNoTracking().FirstOrDefault(filter);
 
 		}
 
@@ -75,8 +92,8 @@ namespace ReceteX.Repository.Shared.Concrete
         
         {
             //programımızda bir şey silecekken id ile siliyoruz. Reposirtoryde düzenleme yaptık
-            //T entity = GetFirstOrDefault(t=>t.Id== id);
-            T entity = dbSet.Find(id);
+            T entity = GetFirstOrDefault(t=>t.Id== id);
+            //T entity = dbSet.Find(id);
             entity.isDeleted = true;
             dbSet.Update(entity);
         }

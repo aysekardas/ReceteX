@@ -19,6 +19,9 @@ namespace ReceteX.Repository.Shared.Abstract
 
         IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
 
+        IQueryable<T> GetAllDeleted();
+        IQueryable<T> GetAllDeleted(Expression<Func<T, bool>> expression);
+
         //Geri dönüş değeri T
         T GetFirstOrDefault(Expression<Func<T, bool>> expression);
 

@@ -23,7 +23,7 @@ namespace ReceteX.Repository.Concrete
         public IQueryable GetAllWithUserCount()
         {
             //var result =
-            return _db.Customers.Where(c=>c.isDeleted==false).GroupJoin(_db.Users, c => c.Id, u => u.CustomerId,     
+            return _db.Customers.Where(c=>c.isDeleted==false).GroupJoin(_db.Users.Where(u=>u.isDeleted==false), c => c.Id, u => u.CustomerId,     
             (customer, user) => new
             {
                 Id = customer.Id,

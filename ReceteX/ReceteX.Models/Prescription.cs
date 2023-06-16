@@ -35,7 +35,7 @@ namespace ReceteX.Models
 
         //bir reçetenin birden fazla tanısı olabilir
 
-        public ICollection<Diagnosis>? Diagnoses { get; set; }
+        public ICollection<Diagnosis> Diagnoses { get; set; }
 
 
 
